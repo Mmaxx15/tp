@@ -22,4 +22,21 @@ public class ExpenditureListTest {
         assertFalse(ExpenditureList.isValidDate("-1.06.2023"));
     }
 
+    @Test
+    public void testValidAmount() {
+        new ExpenditureList();
+        assertTrue(ExpenditureList.isValidAmount(12));
+        assertTrue(ExpenditureList.isValidAmount(12.23F));
+        assertTrue(ExpenditureList.isValidAmount(1.00F));
+    }
+
+    @Test
+    public void testInvalidAmount() {
+        new ExpenditureList();
+        assertFalse(ExpenditureList.isValidAmount(-12));
+        assertFalse(ExpenditureList.isValidAmount(12.2383857983F));
+        assertFalse(ExpenditureList.isValidAmount(1.0042F));
+    }
+
+
 }

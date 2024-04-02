@@ -131,6 +131,20 @@ public class TimetableList {
         }
     }
 
+    public static void listTimetable() {
+        String[] daysOfWeek = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
+
+        for (int i = 0; i < NUM_DAYS; i++) {
+            System.out.println(daysOfWeek[i] + " Classes:");
+            if (classCountDay[i] == 0) {
+                System.out.println("No classes scheduled.");
+            } else {
+                UI.printTimetableByDay(timetable[i]);
+            }
+            System.out.println(); // Add a newline for better readability
+        }
+    }
+
     public static void listByDay(String day) {
         try {
             int classDay = Integer.parseInt(day);

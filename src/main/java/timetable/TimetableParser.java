@@ -21,6 +21,7 @@ public class TimetableParser {
             break;
         case "list":
             System.out.println("Timetable listed here");
+            TimetableList.listTimetable();
             break;
         case "list -d":
             TimetableList.listByDay(details);

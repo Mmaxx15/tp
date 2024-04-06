@@ -102,13 +102,12 @@ public class GPACommand {
 
 
             for (int i = 0; i < numOfModules; i++) {
-                boolean validModuleInput = false;
-                while (!validModuleInput) {
+                while (true) {
                     System.out.println("Enter modular credit and expected grade for module " + (i + 1) +
                             " (format: MODULAR_CREDIT / EXPECTED_GRADE):");
                     String modInput = ui.getUserCommand();
                     if ("exit".equalsIgnoreCase(modInput.trim())) {
-                        System.out.println("Exiting the GPA calculator. Thank you for using it!");
+                        System.out.println("Exiting the GPA calculator. Thank you for using!");
                         return;
                     }
 
@@ -119,17 +118,22 @@ public class GPACommand {
                         }
 
                         int credit = Integer.parseInt(parts[0].trim());
+                        if (credit < 0 || credit > 12) {
+                            throw new IllegalArgumentException("Invalid modular credit input: Credit should be " +
+                                    "between 0 and 12.");
+                        }
                         String grade = parts[1].trim().toUpperCase();
-                        // Optionally validate grade format here if there's a known pattern
+
+                        double gradePoints = GPAMain.calculatePointsForGrade(grade);
 
                         moduleCredits[i] = credit;
                         moduleGrades[i] = grade;
-                        validModuleInput = true; // Input is valid, proceed to the next module
+                        break;
+                    } catch (NumberFormatException e) {
+                        System.out.println("Invalid number format. Please ensure you enter an integer for the " +
+                                "modular credit.");
                     } catch (IllegalArgumentException e) {
-                        System.out.println("Invalid input detected!!!! \n" +
-                                "Please ensure your input matches the format: " +
-                                "MODULAR_CREDIT /EXPECTED_GRADE. \n" +
-                                "Example: 4 / A+");
+                        System.out.println(e.getMessage());
                     }
                 }
             }

@@ -59,7 +59,7 @@ public class UI {
                 + "\nTo input class to timetable, use format:\n"
                 + "<< tt/ add/ day/ <day> code/ <classCode> time/ <hh> duration/ <duration> location/ <location> >>\n"
                 + "\nTo delete saved class, use format:\n"
-                + "<< tt/ del/ day/ <day> time/ <hh> >>\n"
+                + "<< tt/ del/ day/ <day> code/ <code> >>\n"
                 + "\nTo view you timetable, use format\n"
                 + "tt/ list/\n");
     }

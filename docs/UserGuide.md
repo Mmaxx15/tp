@@ -62,7 +62,8 @@ perform the following steps.
 2. Type Your `Current_GPA / Numbers_of_MCs_Taken`. Example: `4.00/24`
 3. Type the numbers of modules taken for this semester. Example: `4`
 4. Type in the Modular_Credit/Expected grade for each module taken.
-Example: `4/A+` and `2/b+`.
+Example: `4/A+` and `2/b+`. Modular credit should be a non-negative integer value between
+0 and 12.
 5. Your GPA will be automatically calculated afterwards.
 
 ### Timetable
@@ -89,7 +90,7 @@ The features include:
 > hours, the duration input will be `3`. 
 
 - Deleting saved classes. To do so, key in with the following format: `tt/ del/ day/ 
-  <day> time/ <hh>`. Example: `tt/ del/ day/ 3 time/ 09`.
+  <day> code/ <code>`. Example: `tt/ del/ day/ 3 code/ cs2113`.
 - Viewing saved classes according the days in the week, arranged in ascending order of
   time. To do so, key in with the following format: `tt/ list/`.
 
